@@ -1,4 +1,12 @@
-# transisi-tes-2
+# recruitment-test-2
+## how to run 
+```
+    cd path/to/project
+
+    npm start
+    # OR
+    yarn start
+```
 
 ## Project setup
 ```
@@ -14,11 +22,4 @@ yarn serve
 ```
 yarn build
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+  
