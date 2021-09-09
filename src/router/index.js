@@ -20,11 +20,25 @@ const routes = [
     path: "/login",
     name: "Login",
     component: () => import("../views/Login.vue"),
+    beforeEnter(to, from, next) {
+      if (localStorage.token) {
+        next(from.path)
+      } else {
+        next()
+      }
+    }
   },
   {
     path: "/register",
     name: "Register",
     component: () => import("../views/Register.vue"),
+    beforeEnter(from, to, next) {
+      if (localStorage.token) {
+        next(from.path)
+      } else {
+        next()
+      }
+    }
   },
 ];
 

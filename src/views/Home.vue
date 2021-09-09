@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen container">
+    <button class="btn glass btn-logout center" @click="logout">logout</button>
     <div class="glass">
       <h2>User List</h2>
       <div
@@ -176,6 +177,10 @@ export default {
     newUsers: [],
   }),
   methods: {
+    logout() {
+      delete localStorage.token;
+      this.$router.push("/login");
+    },
     async getUsers() {
       try {
         const { data } = await axios.get("https://reqres.in/api/users");
@@ -231,7 +236,8 @@ export default {
 .container {
   position: relative;
   z-index: 10;
-  padding: 1rem 0;
+  padding: 0 0.5rem;
+  padding-bottom: 1rem;
   & > .glass {
     padding: 1rem;
     // margin: 1rem 0;
@@ -284,5 +290,8 @@ export default {
 }
 .inline-form {
   display: flex;
+}
+.btn-logout {
+  margin: 0.5rem 0;
 }
 </style>
