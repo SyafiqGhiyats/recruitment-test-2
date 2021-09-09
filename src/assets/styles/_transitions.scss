@@ -1,0 +1,19 @@
+.slide-enter-active {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(1, 0.41, 0.36, 1.15);
+}
+
+.slide-leave-active {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.39, -0.1, 0.28, 0.11);
+}
+
+.slide-enter-to,
+.slide-leave {
+    bottom: 10px;
+}
+
+.slide-enter,
+.slide-leave-to {
+    bottom: -30px;
+}

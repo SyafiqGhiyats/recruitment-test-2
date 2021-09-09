@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+// @import "tailwind";
+@import "transitions";
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    color: white;
+}
+html {
+    font-family: "Poppins", sans-serif;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.min-h-screen {
+    min-height: 100vh;
+}
+.absolute {
+    position: absolute;
+}
+.inset-0 {
+    inset: 0;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+.max-width {
+    max-width: 480px;
+    height: 100%;
+    margin: 0 auto;
+}
+.input-box {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    .input {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        padding-left: 2.5rem;
+        flex-grow: 1;
+        font-size: 1rem;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: darken(#fff, 10);
+        }
+    }
+    .input-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0.5rem;
+        width: 25px;
+    }
+}
+.btn {
+    padding: 0.4rem 0.8rem;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    &:focus {
+        outline: none;
+    }
+}
+
+.form {
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    .action {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1rem;
+        & .btn:nth-child(1) {
+            background: rgba(#3b82f6, 0.8);
+        }
+        & .btn:nth-child(2) {
+            background: rgba(#10b981, 0.8);
+        }
+    }
+}
