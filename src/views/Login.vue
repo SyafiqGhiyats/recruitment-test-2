@@ -4,7 +4,7 @@
       <h1>Login Page</h1>
       <div class="glass absolute"></div>
     </div>
-    <div class="glass center form">
+    <form @submit.prevent="onSubmit" class="glass center form">
       <label for="email">Email</label>
       <div class="input-box">
         <svg
@@ -25,6 +25,7 @@
           type="text"
           class="input glass"
           id="email"
+          v-model="form.email"
           placeholder="example@web.com"
         />
       </div>
@@ -48,6 +49,7 @@
           type="password"
           class="input glass"
           id="password"
+          v-model="form.password"
           placeholder="enter your password"
         />
       </div>
@@ -55,14 +57,43 @@
         <router-link to="/register" class="glass btn">Register</router-link>
         <button class="glass btn">Login</button>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Login",
-  components: {},
+  data: () => ({
+    form: {
+      email: "",
+      password: "",
+    },
+  }),
+  methods: {
+    async onSubmit() {
+      try {
+        const { data } = await axios.post(
+          "https://reqres.in/api/login",
+          this.form
+        );
+        this.bus.$emit("snackbar", {
+          show: true,
+          message: "Login successfully.",
+        });
+        localStorage.token = data.token;
+        this.$router.push("/");
+      } catch ({ response }) {
+        this.form.password = "";
+        this.bus.$emit("snackbar", {
+          show: true,
+          message: response.data.error,
+          danger: true,
+        });
+      }
+    },
+  },
 };
 </script>
 <style lang="scss">

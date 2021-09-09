@@ -1,8 +1,5 @@
 <template>
   <div class="min-h-screen root">
-    <div class="max-width min-h-screen">
-      <router-view></router-view>
-    </div>
     <div v-for="i in 20" :key="i" class="random-glass__wrapper">
       <div
         class="glass absolute"
@@ -15,6 +12,9 @@
           opacity: `${genNumber(10, 70)}%`,
         }"
       ></div>
+    </div>
+    <div class="max-width min-h-screen">
+      <router-view></router-view>
     </div>
     <Snackbar v-model="snackbar.show" :danger="snackbar.danger">
       {{ snackbar.message }}
@@ -61,8 +61,9 @@ export default {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 1;
+  // z-index: ;
   & .glass {
+    z-index: -1;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
 }
